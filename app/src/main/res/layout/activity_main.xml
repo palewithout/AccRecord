@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="matrix.accrecord.MainActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/Table">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/shape"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="85dp"
+                android:background="@drawable/shape"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="85dp"
+                android:background="@drawable/shape"
+                android:text="Button" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/shape"
+                android:text="Button" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="85dp"
+                android:text="Button"
+                android:background="@drawable/shape" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="85dp"
+                android:background="@drawable/shape"
+                android:text="Button" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/shape"
+                android:text="Button"/>
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="85dp"
+                android:background="@drawable/shape"
+                android:text="Button"/>
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="85dp"
+                android:background="@drawable/shape"
+                android:text="Button" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/TextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView1"
+        android:layout_alignStart="@+id/TextView1"
+        android:layout_below="@+id/TextView1"
+        android:ems="10"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/TextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView0"
+        android:layout_alignStart="@+id/TextView0"
+        android:layout_below="@+id/TextView0"
+        android:ems="10"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/TextView0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Table"
+        android:ems="10"
+        android:layout_marginTop="-150dp"
+        android:text="Name" />
+
+
+</RelativeLayout>
