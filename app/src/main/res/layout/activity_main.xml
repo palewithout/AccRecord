@@ -27,7 +27,7 @@
                 android:id="@+id/button1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="85dp"
+                android:layout_marginLeft="75dp"
                 android:background="@drawable/shape"
                 android:text="Button" />
 
@@ -35,7 +35,7 @@
                 android:id="@+id/button2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="85dp"
+                android:layout_marginLeft="65dp"
                 android:background="@drawable/shape"
                 android:text="Button" />
         </LinearLayout>
@@ -55,7 +55,7 @@
                 android:id="@+id/button4"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="85dp"
+                android:layout_marginLeft="75dp"
                 android:text="Button"
                 android:background="@drawable/shape" />
 
@@ -63,7 +63,7 @@
                 android:id="@+id/button5"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="85dp"
+                android:layout_marginLeft="65dp"
                 android:background="@drawable/shape"
                 android:text="Button" />
         </LinearLayout>
@@ -83,7 +83,7 @@
                 android:id="@+id/button7"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="85dp"
+                android:layout_marginLeft="75dp"
                 android:background="@drawable/shape"
                 android:text="Button"/>
 
@@ -91,15 +91,25 @@
                 android:id="@+id/button8"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="85dp"
+                android:layout_marginLeft="65dp"
                 android:background="@drawable/shape"
                 android:text="Button" />
         </LinearLayout>
     </FrameLayout>
 
     <TextView
+        android:id="@+id/StatusView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView2"
+        android:layout_alignStart="@+id/TextView2"
+        android:layout_below="@+id/TextView2"
+        android:ems="10"
+        android:text="Name" />
+
+    <TextView
         android:id="@+id/TextView2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView1"
         android:layout_alignStart="@+id/TextView1"
@@ -109,7 +119,7 @@
 
     <TextView
         android:id="@+id/TextView1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView0"
         android:layout_alignStart="@+id/TextView0"
@@ -119,7 +129,7 @@
 
     <TextView
         android:id="@+id/TextView0"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Table"
         android:ems="10"
