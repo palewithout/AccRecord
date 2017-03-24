@@ -4,6 +4,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -53,6 +54,30 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         ACC = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         CheckSdcard();
 
+        View.OnTouchListener ButtonListener = new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event){
+                System.out.println("AAAAAAAAA");
+                switch (v.getId()){
+                    case R.id.button0:
+                        if(event.getAction() == MotionEvent.ACTION_DOWN){
+                            TouchCount[0]++;
+                            TouchCount[10] = TouchCount[0];
+                            RegisterForAcc();
+                        }
+                        else if(event.getAction() == MotionEvent.ACTION_UP){
+                            new Handler().postDelayed(new Runnable(){
+                                public void run() {
+                                    unRegisterForAcc();
+                                }
+                            }, 500);
+                        }
+                }
+                return false;
+            }
+        };
+        button0.setOnTouchListener(ButtonListener);
+
     }
 
     @Override
@@ -69,29 +94,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     protected void onStop(){
         super.onStop();
     }
-
-    View.OnClickListener ButtonListener = new View.OnClickListener(){
-        @Override
-        public void onClick(View v){}
-        public boolean onTouch(View v, MotionEvent event){
-            switch (v.getId()){
-                case R.id.button0:
-                    if(event.getAction() == MotionEvent.ACTION_DOWN){
-                        TouchCount[0]++;
-                        TouchCount[10] = TouchCount[0];
-                        RegisterForAcc();
-                    }
-                    else if(event.getAction() == MotionEvent.ACTION_UP){
-                        new Handler().postDelayed(new Runnable(){
-                            public void run() {
-                                unRegisterForAcc();
-                            }
-                        }, 500);
-                    }
-            }
-            return false;
-        }
-    };
 
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 // TODO Auto-generated method stub
