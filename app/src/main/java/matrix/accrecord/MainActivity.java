@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private SensorManager sm = null;
     private Sensor ACC;
     private String TimeStr;
+    private int ifWriteFlag = 0;
     String timedata,Sensordata_Acc="";
-    private int[] TouchCount = new int[10];
+    private int[] TouchCount = new int[11];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +64,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         if(event.getAction() == MotionEvent.ACTION_DOWN){
                             TouchCount[0]++;
                             TouchCount[9] = TouchCount[0];
-                            TimeStr=GetTime();
-                            RegisterForAcc();
+                            TouchCount[10] = 0;
+                            ifWriteFlag = 1;
                         }
                         else if(event.getAction() == MotionEvent.ACTION_UP){
                             new Handler().postDelayed(new Runnable(){
                                 public void run() {
-                                    unRegisterForAcc();
+                                    ifWriteFlag = 0;
                                 }
                             }, 500);
                         }
@@ -79,13 +80,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         if(event.getAction() == MotionEvent.ACTION_DOWN){
                             TouchCount[1]++;
                             TouchCount[9] = TouchCount[1];
-                            TimeStr=GetTime();
-                            RegisterForAcc();
+                            TouchCount[10] = 1;
+                            ifWriteFlag = 1;
                         }
                         else if(event.getAction() == MotionEvent.ACTION_UP){
                             new Handler().postDelayed(new Runnable(){
                                 public void run() {
-                                    unRegisterForAcc();
+                                    ifWriteFlag = 0;
                                 }
                             }, 500);
                         }
@@ -95,13 +96,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         if(event.getAction() == MotionEvent.ACTION_DOWN){
                             TouchCount[2]++;
                             TouchCount[9] = TouchCount[2];
-                            TimeStr=GetTime();
-                            RegisterForAcc();
+                            TouchCount[10] = 2;
+                            ifWriteFlag = 1;
                         }
                         else if(event.getAction() == MotionEvent.ACTION_UP){
                             new Handler().postDelayed(new Runnable(){
                                 public void run() {
-                                    unRegisterForAcc();
+                                    ifWriteFlag = 0;
                                 }
                             }, 500);
                         }
@@ -111,13 +112,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         if(event.getAction() == MotionEvent.ACTION_DOWN){
                             TouchCount[3]++;
                             TouchCount[9] = TouchCount[3];
-                            TimeStr=GetTime();
-                            RegisterForAcc();
+                            TouchCount[10] = 3;
+                            ifWriteFlag = 1;
                         }
                         else if(event.getAction() == MotionEvent.ACTION_UP){
                             new Handler().postDelayed(new Runnable(){
                                 public void run() {
-                                    unRegisterForAcc();
+                                    ifWriteFlag = 0;
                                 }
                             }, 500);
                         }
@@ -127,13 +128,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         if(event.getAction() == MotionEvent.ACTION_DOWN){
                             TouchCount[4]++;
                             TouchCount[9] = TouchCount[4];
-                            TimeStr=GetTime();
-                            RegisterForAcc();
+                            TouchCount[10] = 4;
+                            ifWriteFlag = 1;
                         }
                         else if(event.getAction() == MotionEvent.ACTION_UP){
                             new Handler().postDelayed(new Runnable(){
                                 public void run() {
-                                    unRegisterForAcc();
+                                    ifWriteFlag = 0;
                                 }
                             }, 500);
                         }
@@ -143,13 +144,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         if(event.getAction() == MotionEvent.ACTION_DOWN){
                             TouchCount[5]++;
                             TouchCount[9] = TouchCount[5];
-                            TimeStr=GetTime();
-                            RegisterForAcc();
+                            TouchCount[10] = 5;
+                            ifWriteFlag = 1;
                         }
                         else if(event.getAction() == MotionEvent.ACTION_UP){
                             new Handler().postDelayed(new Runnable(){
                                 public void run() {
-                                    unRegisterForAcc();
+                                    ifWriteFlag = 0;
                                 }
                             }, 500);
                         }
@@ -159,13 +160,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         if(event.getAction() == MotionEvent.ACTION_DOWN){
                             TouchCount[6]++;
                             TouchCount[9] = TouchCount[6];
-                            TimeStr=GetTime();
-                            RegisterForAcc();
+                            TouchCount[10] = 6;
+                            ifWriteFlag = 1;
                         }
                         else if(event.getAction() == MotionEvent.ACTION_UP){
                             new Handler().postDelayed(new Runnable(){
                                 public void run() {
-                                    unRegisterForAcc();
+                                    ifWriteFlag = 0;
                                 }
                             }, 500);
                         }
@@ -175,13 +176,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         if(event.getAction() == MotionEvent.ACTION_DOWN){
                             TouchCount[7]++;
                             TouchCount[9] = TouchCount[7];
-                            TimeStr=GetTime();
-                            RegisterForAcc();
+                            TouchCount[10] = 7;
+                            ifWriteFlag = 1;
                         }
                         else if(event.getAction() == MotionEvent.ACTION_UP){
                             new Handler().postDelayed(new Runnable(){
                                 public void run() {
-                                    unRegisterForAcc();
+                                    ifWriteFlag = 0;
                                 }
                             }, 500);
                         }
@@ -191,13 +192,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         if(event.getAction() == MotionEvent.ACTION_DOWN){
                             TouchCount[8]++;
                             TouchCount[9] = TouchCount[8];
-                            TimeStr=GetTime();
-                            RegisterForAcc();
+                            TouchCount[10] = 8;
+                            ifWriteFlag = 1;
                         }
                         else if(event.getAction() == MotionEvent.ACTION_UP){
                             new Handler().postDelayed(new Runnable(){
                                 public void run() {
-                                    unRegisterForAcc();
+                                    ifWriteFlag = 0;
                                 }
                             }, 500);
                         }
@@ -205,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     default:
                         break;
                 }
-                return true;
+                return false;
             }
         };
         button0.setOnTouchListener(ButtonListener);
@@ -228,11 +229,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     protected void onResume(){
         super.onResume();
+        RegisterForAcc();
     }
 
     @Override
     protected void onStop(){
         super.onStop();
+        unRegisterForAcc();
     }
 
     @Override
@@ -244,9 +247,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
 // TODO Auto-generated method stub
+        System.out.println(Sensordata_Acc);
         synchronized (this) {
             setAccelerometer(event);
-            if(Sensordata_Acc!=""){
+            if (Sensordata_Acc != ""&&ifWriteFlag == 1) {
                 writedata(GetTime());
                 writedata(Sensordata_Acc);
             }
@@ -276,8 +280,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     public void writedata(String string){
-        String str=TimeStr;
-        String fileName =String.valueOf(TouchCount[9])+"_"+str.trim()+".txt";
+        String fileName ="Button"+String.valueOf(TouchCount[10])+"_"+String.valueOf(TouchCount[9])+".txt";
 //        File dir = Environment.getExternalStorageDirectory();
         File dir = new File("/storage/emulated/0/AccRecord");
         if (dir.exists()&& dir.canWrite()) {
@@ -334,9 +337,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         float ac_x = event.values[sm.DATA_X];
         float ac_y = event.values[sm.DATA_Y];
         float ac_z = event.values[sm.DATA_Z];
-        Acc_x.setText("X = " + ac_x);
-        Acc_y.setText("Y = " + ac_y);
-        Acc_z.setText("Z = " + ac_z);
+        if(ifWriteFlag == 1) {
+            Acc_x.setText("X = " + ac_x);
+            Acc_y.setText("Y = " + ac_y);
+            Acc_z.setText("Z = " + ac_z);
+        }
         Sensordata_Acc=ac_x+" "+ac_y+" "+ac_z+" ";
         //writedata("Acc",gettime());
         //writedata( "Acc",Sensordata_Acc);
