@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.os.Environment;
 import android.text.format.DateFormat;
-import android.view.View.OnClickListener;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,7 +27,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Button button0, button1,button2, button3, button4, button5, button6, button7, button8;
     private SensorManager sm = null;
     private Sensor ACC;
-    String timedata,Sensordata_Acc="",Sensordata_Gyr="",Sensordata_Pre="";
+    private String TimeStr;
+    String timedata,Sensordata_Acc="";
     private int[] TouchCount = new int[10];
 
     @Override
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         button7 = (Button)findViewById(R.id.button7);
         button8 = (Button)findViewById(R.id.button8);
 
-        SensorManager sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sm = (SensorManager) getSystemService(SENSOR_SERVICE);
         ACC = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         CheckSdcard();
 
@@ -62,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     case R.id.button0:
                         if(event.getAction() == MotionEvent.ACTION_DOWN){
                             TouchCount[0]++;
-                            TouchCount[10] = TouchCount[0];
+                            TouchCount[9] = TouchCount[0];
+                            TimeStr=GetTime();
                             RegisterForAcc();
                         }
                         else if(event.getAction() == MotionEvent.ACTION_UP){
@@ -72,11 +73,150 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                                 }
                             }, 500);
                         }
+                        break;
+
+                    case R.id.button1:
+                        if(event.getAction() == MotionEvent.ACTION_DOWN){
+                            TouchCount[1]++;
+                            TouchCount[9] = TouchCount[1];
+                            TimeStr=GetTime();
+                            RegisterForAcc();
+                        }
+                        else if(event.getAction() == MotionEvent.ACTION_UP){
+                            new Handler().postDelayed(new Runnable(){
+                                public void run() {
+                                    unRegisterForAcc();
+                                }
+                            }, 500);
+                        }
+                        break;
+
+                    case R.id.button2:
+                        if(event.getAction() == MotionEvent.ACTION_DOWN){
+                            TouchCount[2]++;
+                            TouchCount[9] = TouchCount[2];
+                            TimeStr=GetTime();
+                            RegisterForAcc();
+                        }
+                        else if(event.getAction() == MotionEvent.ACTION_UP){
+                            new Handler().postDelayed(new Runnable(){
+                                public void run() {
+                                    unRegisterForAcc();
+                                }
+                            }, 500);
+                        }
+                        break;
+
+                    case R.id.button3:
+                        if(event.getAction() == MotionEvent.ACTION_DOWN){
+                            TouchCount[3]++;
+                            TouchCount[9] = TouchCount[3];
+                            TimeStr=GetTime();
+                            RegisterForAcc();
+                        }
+                        else if(event.getAction() == MotionEvent.ACTION_UP){
+                            new Handler().postDelayed(new Runnable(){
+                                public void run() {
+                                    unRegisterForAcc();
+                                }
+                            }, 500);
+                        }
+                        break;
+
+                    case R.id.button4:
+                        if(event.getAction() == MotionEvent.ACTION_DOWN){
+                            TouchCount[4]++;
+                            TouchCount[9] = TouchCount[4];
+                            TimeStr=GetTime();
+                            RegisterForAcc();
+                        }
+                        else if(event.getAction() == MotionEvent.ACTION_UP){
+                            new Handler().postDelayed(new Runnable(){
+                                public void run() {
+                                    unRegisterForAcc();
+                                }
+                            }, 500);
+                        }
+                        break;
+
+                    case R.id.button5:
+                        if(event.getAction() == MotionEvent.ACTION_DOWN){
+                            TouchCount[5]++;
+                            TouchCount[9] = TouchCount[5];
+                            TimeStr=GetTime();
+                            RegisterForAcc();
+                        }
+                        else if(event.getAction() == MotionEvent.ACTION_UP){
+                            new Handler().postDelayed(new Runnable(){
+                                public void run() {
+                                    unRegisterForAcc();
+                                }
+                            }, 500);
+                        }
+                        break;
+
+                    case R.id.button6:
+                        if(event.getAction() == MotionEvent.ACTION_DOWN){
+                            TouchCount[6]++;
+                            TouchCount[9] = TouchCount[6];
+                            TimeStr=GetTime();
+                            RegisterForAcc();
+                        }
+                        else if(event.getAction() == MotionEvent.ACTION_UP){
+                            new Handler().postDelayed(new Runnable(){
+                                public void run() {
+                                    unRegisterForAcc();
+                                }
+                            }, 500);
+                        }
+                        break;
+
+                    case R.id.button7:
+                        if(event.getAction() == MotionEvent.ACTION_DOWN){
+                            TouchCount[7]++;
+                            TouchCount[9] = TouchCount[7];
+                            TimeStr=GetTime();
+                            RegisterForAcc();
+                        }
+                        else if(event.getAction() == MotionEvent.ACTION_UP){
+                            new Handler().postDelayed(new Runnable(){
+                                public void run() {
+                                    unRegisterForAcc();
+                                }
+                            }, 500);
+                        }
+                        break;
+
+                    case R.id.button8:
+                        if(event.getAction() == MotionEvent.ACTION_DOWN){
+                            TouchCount[8]++;
+                            TouchCount[9] = TouchCount[8];
+                            TimeStr=GetTime();
+                            RegisterForAcc();
+                        }
+                        else if(event.getAction() == MotionEvent.ACTION_UP){
+                            new Handler().postDelayed(new Runnable(){
+                                public void run() {
+                                    unRegisterForAcc();
+                                }
+                            }, 500);
+                        }
+                        break;
+                    default:
+                        break;
                 }
-                return false;
+                return true;
             }
         };
         button0.setOnTouchListener(ButtonListener);
+        button1.setOnTouchListener(ButtonListener);
+        button2.setOnTouchListener(ButtonListener);
+        button3.setOnTouchListener(ButtonListener);
+        button4.setOnTouchListener(ButtonListener);
+        button5.setOnTouchListener(ButtonListener);
+        button6.setOnTouchListener(ButtonListener);
+        button7.setOnTouchListener(ButtonListener);
+        button8.setOnTouchListener(ButtonListener);
 
     }
 
@@ -95,20 +235,20 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onStop();
     }
 
+    @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 // TODO Auto-generated method stub
 
     }
 
+    @Override
     public void onSensorChanged(SensorEvent event) {
 // TODO Auto-generated method stub
         synchronized (this) {
             setAccelerometer(event);
-            if(Sensordata_Acc!=""&&Sensordata_Gyr!=""&&Sensordata_Pre!=""){
+            if(Sensordata_Acc!=""){
                 writedata(GetTime());
                 writedata(Sensordata_Acc);
-                writedata(Sensordata_Gyr);
-                writedata(Sensordata_Pre);
             }
         }
     }
@@ -136,10 +276,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     public void writedata(String string){
-        String str=GetTime();
-        String fileName =String.valueOf(TouchCount[10])+"_"+str.trim()+".txt";
-        File dir = new File("/sdcard/");
-        if (dir.exists() && dir.canWrite()) {
+        String str=TimeStr;
+        String fileName =String.valueOf(TouchCount[9])+"_"+str.trim()+".txt";
+//        File dir = Environment.getExternalStorageDirectory();
+        File dir = new File("/storage/emulated/0/AccRecord");
+        if (dir.exists()&& dir.canWrite()) {
             File newFile = new File(dir.getAbsolutePath() + "/" + fileName);
             FileOutputStream fos = null;
             try {
@@ -180,7 +321,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private void RegisterForAcc() {
         // TODO Auto-generated method stub
-        sm.registerListener(this, ACC, SensorManager.SENSOR_DELAY_GAME);
+        sm.registerListener(this, ACC, sm.SENSOR_DELAY_GAME);
     }
 
     private void unRegisterForAcc() {
